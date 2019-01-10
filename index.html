@@ -2,20 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-    <div>Please choose a category</div>
-    <select id="category" onchange="categoryChosen()">
-        <option>Categories</option>
-        <option>U.S States</option>
-        <option>Famous Artists</option>
-        <option>Football Jargon</option>
-    </select>
+Hangman
 </header>
-<input id="guessbox" type="text" maxlength="1" placeholder="type letter" onchange="guess()">
+<div>Please choose a category</div>
+<select id="category" onchange="categoryChosen()">
+    <option>Categories</option>
+    <option value = "1">U.S States</option>
+    <option>Famous Artists</option>
+    <option>Football Jargon</option>
+</select>
+<input id="guessbox" type="text" maxlength="1" placeholder="type letter" >
+<button>button</button>
+<div id="word">word</div>
 </body>
 </html>
