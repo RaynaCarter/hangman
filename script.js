@@ -3,39 +3,34 @@
  * Dec 28, 2018
  */
 var state =  document.getElementById("category");
-var STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana",
-    "Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio",
-    "Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+var STATES = ["alabama","alaska","arizona","arkansas","california","colorado","connecticut","delaware","florida","georgia","hawaii","idaho","illinois","indiana","iowa","kansas","kentucky","louisiana",
+    "maine","maryland","massachusetts","michigan","minnesota","mississippi","missouri","montana","nebraska","nevada","new hampshire","new jersey","new mexico","new york","north carolina","north dakota","ohio",
+    "oklahoma","oregon","pennsylvania","rhode island","south carolina","south dakota","tennessee","texas","utah","vermont","virginia","washington","west virginia","wisconsin","wyoming"];
 
-var numUnderLines = 0;
-var inputLetter = document.getElementById("guessbox").value;
+
 var word = "";
-var letterArray = [];
-var guessedetters = [];
-var answer= [];
+var guessedLetters = [];
 
-function categoryChosen(x){
-    var choice = document.getElementById("category").value;
+
+function categoryChosen(){
+    choice = document.getElementById("category").value;
     if (choice == 1){
          word = STATES[Math.floor(Math.random()* STATES.length)];
     }
     console.log(word);
 }
 
-function underline() {
-    for (var i = 0; i < word.length; i++) {
-        numUnderLines += 1;
-    }
-    return numUnderLines;
-    document.getElementById("underline").innerHTML= numUnderLines;
-
-}
-
-function printWord(){
+function printWord(x){
+    guessedLetters += document.getElementById("guessbox").value;
+    var answer= " ";
     for(var i=0;i< word.length;i++){
-        if(word[i]= inputLetter){
-            answer+= word[i]
+        if(guessedLetters.indexOf(word[i]) >=0){
+            answer+= word[i];
+        }else {
+            answer += "_ ";
         }
     }
-    return answer;
+    console.log(answer);
+    console.log(guessedLetters);
+    document.getElementById("underline").innerHTML= answer;
 }
